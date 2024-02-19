@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erpiana <erpiana@student.42.rio>           +#+  +:+       +#+        */
+/*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/29 07:48:02 by erpiana           #+#    #+#             */
-/*   Updated: 2023/10/29 07:48:04 by erpiana          ###   ########.fr       */
+/*   Created: 2023/10/29 07:52:00 by erpiana           #+#    #+#             */
+/*   Updated: 2024/02/18 23:35:45 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+size_t	ft_strlen(const char *s)
 {
-	size_t			i;
-	unsigned char	*mem;
+	size_t	i;
 
-	mem = (unsigned char *)s;
 	i = 0;
-	while (i < n)
-	{
-		mem[i] = c;
+	while (s[i] != '\0')
 		i++;
-	}
-	return ((void *)mem);
+	return (i);
 }
