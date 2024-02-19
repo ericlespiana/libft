@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 17:36:13 by erpiana           #+#    #+#             */
-/*   Updated: 2024/02/19 00:08:13 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/02/19 05:42:00 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ static int	set_size(char const *s, char c)
 {
 	size_t	i;
 	size_t	len;
-
 
 	i = 0;
 	len = 0;
