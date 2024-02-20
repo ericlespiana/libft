@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/29 07:47:48 by erpiana           #+#    #+#             */
-/*   Updated: 2024/02/20 04:50:54 by erpiana          ###   ########.fr       */
+/*   Created: 2023/10/29 09:20:13 by erpiana           #+#    #+#             */
+/*   Updated: 2024/02/20 01:05:38 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+int	ft_printf(const char *format, ...)
 {
-	unsigned char		*d;
-	const unsigned char	*s;
+	va_list	ap;
+	int		i;
+	int		count;
 
-	d = (unsigned char *)dest;
-	s = (const unsigned char *)src;
-	if (d == s)
-		return (dest);
-	else if (d > s)
+	i = 0;
+	count = 0;
+	va_start(ap, format);
+	while (format[i] != '\0')
 	{
-		while (n--)
-			d[n] = s[n];
+		if (format[i] == '%' && ft_strchr("cspdiuxX%", format[i + 1]))
+		{
+			i++;
+			count += ft_print_format(format[i], ap);
+		}
+		else
+			count += ft_putchar(format[i]);
+		i++;
 	}
-	else
-		while (n--)
-			*d++ = *s++;
-	return (dest);
+	va_end(ap);
+	return (count);
 }
