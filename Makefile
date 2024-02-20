@@ -6,7 +6,7 @@
 #    By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/29 07:56:03 by erpiana           #+#    #+#              #
-#    Updated: 2024/02/19 22:15:15 by erpiana          ###   ########.fr        #
+#    Updated: 2024/02/20 00:53:57 by erpiana          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,28 +43,28 @@ NAME 		:= 	libft.a
 #                                  BASH COMMANDS                               #
 #******************************************************************************#
 
-RM		:= 	rm -rf
+RM			:= 	rm -rf
 
 #******************************************************************************#
 #                                  COMPILATION                                 #
 #******************************************************************************#
 
-CC		:= 	cc
+CC			:= 	cc
 CFLAGS 		:= 	-Wall -Wextra -Werror
 
 #******************************************************************************#
 #                                   TARGETS                                    #
 #******************************************************************************#
 
-all: obj $(NAME)
+all: $(NAME)
 
 obj:
-	mkdir -p obj
+		mkdir -p obj
 
-$(NAME): $(OBJS)
+$(NAME): obj $(OBJS)
 		echo "Comprimindo mandatórios no arquivo $@"
 		
-obj/%.o: $(SRCS_PATH)%.c
+obj/%.o:	$(SRCS_PATH)%.c
 		$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 		echo "Compilando o arquivo $(notdir $<)"
 		ar -rcs $(NAME) $@
@@ -77,7 +77,7 @@ fclean:	clean
 		
 re:	fclean all
 
-bonus:	$(NAME) $(BONUS_OBJS)
+bonus: $(NAME) $(BONUS_OBJS)
 		echo "Comprimindo bonus no arquivo $<"
 
 .PHONY:	all clean fclean re bonus
