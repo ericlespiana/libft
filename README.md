@@ -49,3 +49,10 @@ To use the Libft library in your own project, simply include the libft.h file in
 
 Compilation example:
 gcc your_file.c libft.a -o your_program
+
+## Note
+<p>Libft is constantly evolving, the functions mentioned in this readme were mandatory for the delivery of the project, 
+but some extra functions are being added, which are:</p>
+
+- **ft_printf:** It has the same behavior as the standard C printf function, with limited functionality. (There is the repository for this project on my github)
+
