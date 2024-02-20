@@ -6,7 +6,7 @@
 #    By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/29 07:56:03 by erpiana           #+#    #+#              #
-#    Updated: 2024/02/19 22:04:07 by erpiana          ###   ########.fr        #
+#    Updated: 2024/02/19 22:15:15 by erpiana          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,11 +62,11 @@ obj:
 	mkdir -p obj
 
 $(NAME): $(OBJS)
-		echo "Comprimindo no arquivo $@"
+		echo "Comprimindo mandatórios no arquivo $@"
 		
 obj/%.o: $(SRCS_PATH)%.c
 		$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
-		echo "Compilando o arquivo $(notdir $<) no arquivo $(notdir $@)"
+		echo "Compilando o arquivo $(notdir $<)"
 		ar -rcs $(NAME) $@
 		
 clean:
@@ -75,9 +75,10 @@ clean:
 fclean:	clean
 		$(RM) $(NAME)
 		
-re:	fclean $(NAME)
+re:	fclean all
 
 bonus:	$(NAME) $(BONUS_OBJS)
+		echo "Comprimindo bonus no arquivo $<"
 
 .PHONY:	all clean fclean re bonus
 
